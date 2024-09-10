@@ -6,7 +6,9 @@ class Base
 	double petrol_on_base;
 	double goods_on_base;
 public:
-
-
+	Base(int plob);
+	Base(int plob, int vhop);
+	Base(int plob, int vhop, int ptob);
+	Base(int plob, int vhop, int ptob, int gdob);
 };
 

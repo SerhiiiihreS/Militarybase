@@ -7,9 +7,13 @@ class Truck :public Vehicle
 	double petrol;
 	double max_petrol;
 public:
+	Truck(double ld);
+	Truck(double ld, double maxld);
+	Truck(double ld, double maxld, double ptrl);
+	Truck(double ld, double maxld, double ptrl, double maxptrl);
 	double GetCurrentLoad();
 	double GetMaxLoad();
-	void arrive();
-	bool leave();
+	int arrive(int vhop);
+	bool leave(int plob, int ptob);
 };
 
