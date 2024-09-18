@@ -28,7 +28,7 @@ int Bus::arrive(int plob,int vbase)
 {
     int plobcarnt = plob+people+1;
     people = 0;
-    vbase = +1;
+    vbase =+1;
     return plobcarnt;
 }
 
