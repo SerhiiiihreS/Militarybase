@@ -3,24 +3,13 @@
 #include "Vehicle.h"
 using namespace std;
 
-Truck::Truck(double ld)
+
+Truck::Truck(double ld, double maxld, double pet, double maxpet) : Vehicle(pet, maxpet)
 {
     load = ld;
-}
-
-Truck::Truck(double ld, double maxld) :Truck( ld)
-{
-    max_load = maxld; 
-}
-
-Truck::Truck(double ld, double maxld, double ptrl) :Truck( ld, maxld)
-{
-    petrol = ptrl; 
-}
-
-Truck::Truck(double ld, double maxld, double ptrl, double maxptrl) :Truck( ld,  maxld,  ptrl)
-{
-    max_petrol = maxptrl; 
+    max_load = maxld;
+    petrol = pet;
+    max_petrol = maxpet;
 }
 
 double Truck::GetCurrentLoad()
@@ -33,11 +22,11 @@ double Truck::GetMaxLoad()
     return max_load;
 }
 
-int Truck::arrive(int vhop)
+int Truck::arrive(int vhop, int vbase,int pbase)
 {
     int vhopcarnt = vhop + load;
-    driver++;
-    car++;
+    vbase = +1;
+    pbase = +1;
     load = 0;
     return vhopcarnt;
 }
@@ -46,21 +35,5 @@ bool Truck::leave(int gdob, int ptob)
 {
     if (gdob <= 0 && ptob <= 0) {
         return false;
-    }
-    else if (gdob > 0 && ptob > 0) {
-        if (gdob >= max_load) {
-            load = max_load;
-        }
-        else {
-            load = gdob;
-        }
-        if (ptob >= max_petrol) {
-            petrol = max_petrol;
-        }
-        else {
-            petrol = ptob;
-        }
-        driver--;
-        car--;
     }
 }

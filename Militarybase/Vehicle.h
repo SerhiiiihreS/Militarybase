@@ -1,23 +1,26 @@
 #pragma once
 class Vehicle
 {
-	double petrol_amount;
-	double tank_volume;
-	
+	double petrol;
+	double max_petrol;
+
 public:
-	static int driver;
-	static int car;
-	double Gettank_volume();
-	double Getpetrol_amount(); 
-	virtual int arrive(int plob);
+	
+
+	Vehicle(double pet);
+	Vehicle(double pet, double maxpet);
+
+	virtual double Getpetrol();
+	virtual double Getmax_petrol();
+	virtual int arrive(int plob, int vbase);
+	virtual int arriveT(int plob, int vbase, int pbase);
+	virtual void Print();
+	virtual int GetMaxPeople();
+	virtual double GetMaxLoad();
 
 	virtual bool leave(int plob, int ptob);
-	Vehicle()= default;
-	Vehicle(double petamo);
-	Vehicle(double petamo, double tavo);
+
 
 
 };
 
-int Vehicle::driver = 0;
-int Vehicle::car = 0;
